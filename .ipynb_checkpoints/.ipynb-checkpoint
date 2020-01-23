@@ -1,0 +1,139 @@
+{
+ "cells": [
+  {
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "7. A bank teller serves customers standing in the queue one by one. Suppose that the service time XiXi for customer ii has mean EXi=2 (minutes) and Var(Xi)=1. We assume that service times for different bank customers are independent. Let YY be the total time the bank teller spends serving 50 customers. Write a program to find P(90<Y<110)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "mean = 2\n",
+    "var = 1\n",
+    "n = 50"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "100\n",
+      "50\n"
+     ]
+    }
+   ],
+   "source": [
+    "p_mean = mean*n\n",
+    "p_var = n*var\n",
+    "print(p_mean)\n",
+    "print(p_var)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Standerd deviation : 7.0710678118654755\n"
+     ]
+    }
+   ],
+   "source": [
+    "from math import sqrt\n",
+    "sd = sqrt(p_var)\n",
+    "print(\"Standerd deviation :\",sd)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "p<=90 : -1.414213562373095\n"
+     ]
+    }
+   ],
+   "source": [
+    "def z_val(num,mean,sd):\n",
+    "    return (num-mean)/sd\n",
+    "\n",
+    "print(\"p < 90 :\",z_val(90,p_mean,sd))\n",
+    "table_prob_90 = 0.07037"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "p < 110 : 1.414213562373095\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"p < 110 :\",z_val(110,p_mean,sd))\n",
+    "table_prob_110 = 0.92037"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "p(90<X<110): 0.85\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"p(90<X<110):\",table_prob_110-table_prob_90)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
