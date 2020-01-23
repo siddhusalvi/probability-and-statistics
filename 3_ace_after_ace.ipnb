@@ -1,7 +1,7 @@
 {
  "cells": [
   {
-   "cell_type": "raw",
+   "cell_type": "markdown",
    "metadata": {},
    "source": [
     "Write a program to find the probability of drawing an ace after drawing an ace on the first draw"
